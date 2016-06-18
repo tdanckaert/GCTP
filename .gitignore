@@ -1,0 +1,17 @@
+*.o
+*.lo
+*~
+
+Makefile
+config.h
+config.log
+config.status
+
+autom4te.cache/
+
+source/.deps
+source/.libs
+
+test/proj/*/cmp*
+test/proj/*/temp*
+test/proj/*/testfile
