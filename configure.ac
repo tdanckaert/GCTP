@@ -15,7 +15,7 @@ AC_CHECK_LIB([m], [sin])
 AC_CHECK_HEADERS([stdlib.h string.h])
 
 # Checks for library functions.
-AC_CHECK_FUNCS([pow sqrt])
+AC_CHECK_FUNCS([pow sqrt sincos])
 
 AC_CONFIG_FILES([Makefile
         source/Makefile])

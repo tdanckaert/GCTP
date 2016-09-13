@@ -36,6 +36,7 @@ S. Nelson, EROS		Jan, 1998	Changed misspelled error message
 
 *******************************************************************************/
 #include "cproj.h"
+#include "config.h"
 
 #define MAX_VAL 4
 #define MAXLONG 2147483647.
@@ -46,6 +47,7 @@ S. Nelson, EROS		Jan, 1998	Changed misspelled error message
    than calling each function separately.  It is provided here for those
    computer systems which don`t implement this function
   ----------------------------------------------------*/
+#ifndef HAVE_SINCOS
 void sincos(val, sin_val, cos_val)
 double val;
 double *sin_val;
@@ -55,6 +57,7 @@ double *cos_val;
 *cos_val = cos(val);
 return;
 }
+#endif
 
 /* Function to eliminate roundoff errors in asin
 ----------------------------------------------*/
