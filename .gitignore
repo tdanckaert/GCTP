@@ -11,6 +11,8 @@ autom4te.cache/
 
 source/.deps
 source/.libs
+source/nad27sp
+source/nad83sp
 
 test/proj/*/cmp*
 test/proj/*/temp*

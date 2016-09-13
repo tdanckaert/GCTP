@@ -23,9 +23,10 @@ ALGORITHM REFERENCES
     Printing Office, Washington D.C., 1989.
 *******************************************************************************/
 #include <stdio.h>
+#include <stdint.h>
 #include "cproj.h"
 
-static long id;		/* indicates which projection is to be transformed */
+static int32_t id;		/* indicates which projection is to be transformed */
 
 /* set the initialized values for zone and spheroid.  This value determines
    wheather to initialize or not
@@ -136,7 +137,7 @@ if (ptr == NULL)
       }
 fseek(ptr,(ind) * 432, 0);
 fread(pname,1,32,ptr);
-fread(&id,sizeof(long),1,ptr);
+fread(&id,sizeof(id),1,ptr);
 fread(table,sizeof(double),9,ptr);
 fclose(ptr);
   

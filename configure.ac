@@ -7,6 +7,7 @@ AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
 AC_PROG_CC
+AC_PROG_F77
 
 # Checks for libraries.
 AC_CHECK_LIB([m], [sin])

@@ -16,3 +16,17 @@ libgctp_la_SOURCES = gctp.c alberfor.c alberinv.c alconfor.c alconinv.c \
 include_HEADERS = cproj.h proj.h
 
 libgctp_la_LDFLAGS = -release 2.0.0
+
+noinst_PROGRAMS = spload
+spload_SOURCES = spload.f
+
+pkgdata_DATA = nad27sp nad83sp
+
+# distribute state plane coordinate parameter files
+EXTRA_DIST = nad1927 nad1983
+
+nad83sp: nad1983 spload
+	./spload $(srcdir)/nad1983 nad83sp
+
+nad27sp: nad1927 spload
+	./spload $(srcdir)/nad1927 nad27sp
