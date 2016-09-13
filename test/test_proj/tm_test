@@ -1,0 +1,12 @@
+#!/bin/bash
+
+./testproj $DATADIR/tm/data9 < $DATADIR/tm/parm9 > testfile_tm
+./testproj $DATADIR/tm/data9a < $DATADIR/tm/parm9a >> testfile_tm
+./testproj $DATADIR/tm/data9b < $DATADIR/tm/parm9b >> testfile_tm
+./testproj $DATADIR/tm/data9c < $DATADIR/tm/parm9c >> testfile_tm
+./testproj $DATADIR/tm/data9d < $DATADIR/tm/parm9d >> testfile_tm
+./testproj $DATADIR/tm/data9e < $DATADIR/tm/parm9e >> testfile_tm
+
+grep -qi "Differences exist" testfile_tm && exit 1
+
+exit 0

@@ -1,4 +1,12 @@
-#!/bin/csh
-$CMPGCTP/testproj < parm23 > testfile
-$CMPGCTP/testproj < parm23a >> testfile
-$CMPGCTP/testproj < parm23b >> testfile
+#!/bin/bash
+
+./testproj $DATADIR/alaska/data23 < $DATADIR/alaska/parm23 > testfile
+./testproj $DATADIR/alaska/data23a < $DATADIR/alaska/parm23a >> testfile
+./testproj $DATADIR/alaska/data23b < $DATADIR/alaska/parm23b >> testfile
+
+for f in cmp*
+do
+    grep -qi "Differences exist" $f && exit 1
+done
+
+exit 0

@@ -40,7 +40,7 @@ ALGORITHM REFERENCES
 
 #define CMLEN	256
 
-main()
+main(int argc, char *argv[])
 {
 long k;
 char file27[CMLEN];
@@ -135,12 +135,12 @@ printf("29    WAGNER VII \n");
 printf("30    OBLATED EQ AR		");
 
 printf("\n Please enter the projection number \n");
-scanf("%d",&proj);
+scanf("%ld",&proj);
 
 if ((proj == 1) || (proj == 2))
    {
    printf("\n Please enter the zone number \n");
-   scanf("%d",&zonec);
+   scanf("%ld",&zonec);
    }
 else
    {
@@ -149,7 +149,7 @@ else
  
 for (k = 0; k < 15; k++)
     {
-    printf("\n Please enter projection parameter %d \n",k);
+    printf("\n Please enter projection parameter %ld \n",k);
     scanf("%lf",&proj_parm[k]);
     inparm[k] = 0.0;
     outparm[k] = 0.0;
@@ -199,8 +199,8 @@ if (!strcmp(fflag,"Y"))
 
    /* open existing data file
       ----------------------*/
-   fptr2 = fopen(file2,"r");
-   if (fptr2 == '\0')
+   fptr2 = fopen(argv[1],"r");
+   if (fptr2 == NULL)
       {
       printf("\nError opening comparison file--discontinue comparison\n");
       fprintf(fptr3,"\nError opening comp file--discontinue comparison\n");
@@ -263,7 +263,7 @@ count = 0;
    ------------------------------------------*/
 if (proj == SPCS)
    {
-   ptr = (char *)getenv("LIBGCTP");
+   ptr = (char *)getenv("SRCGCTP");
    strcpy(libgctp,ptr);
    sprintf(file27,"%s/nad27sp", libgctp);
    sprintf(file83,"%s/nad83sp", libgctp);
@@ -372,7 +372,11 @@ for(j = min_lon; j <= max_lon; j += fabs(lon_inc))
 	   fprintf(fptr3,"X n %lf X o %lf Y n %lf Y o %lf\n",
 			incoorc[0], incoorcx[0], incoorc[1], incoorcx[1]);
 	   }
-	 else if ((fabs(outcoor[0] - outcoorx[0]) > tol) ||
+	 else if ((fabs(outcoor[0] - outcoorx[0]) > tol &&
+                   (fabs(outcoor[0]) -180.0 > 0.0001 ||
+                    fabs(outcoorx[0]) -180.0 > 0.0001) && // exclude -180  vs + 180
+                   fabs(fabs(outcoor[1]) - 90.) > 0.0001 // longitude differences may occur at lat +/- 90
+                   ) ||
 			(fabs(outcoor[1] - outcoorx[1]) > tol))
  	   {
 	   fprintf(fptr3,"Differences exist at long %lf lat %lf\n",incoor[0],
@@ -391,5 +395,5 @@ if (!strcmp(fflag,"Y"))
   fclose(fptr3);
   fclose(fptr2);
   }
-printf("\nNumber of points transformed %d \n",count);
+printf("\nNumber of points transformed %ld \n",count);
 }

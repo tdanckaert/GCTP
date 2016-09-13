@@ -1,0 +1,10 @@
+#!/bin/bash
+
+./testproj $DATADIR/utm/data1p13 < $DATADIR/utm/parm1p13 > testfile_utm
+./testproj $DATADIR/utm/data1p31 < $DATADIR/utm/parm1p31 >> testfile_utm
+./testproj $DATADIR/utm/data1n13 < $DATADIR/utm/parm1n13 >> testfile_utm
+./testproj $DATADIR/utm/data1n31 < $DATADIR/utm/parm1n31 >> testfile_utm
+
+grep -qi "Differences exist" testfile_utm && exit 1
+
+exit 0

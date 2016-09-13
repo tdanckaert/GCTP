@@ -1,0 +1,9 @@
+#!/bin/bash
+
+./testproj $DATADIR/alaska/data23 < $DATADIR/alaska/parm23 > testfile_alaska
+./testproj $DATADIR/alaska/data23a < $DATADIR/alaska/parm23a >> testfile_alaska
+./testproj $DATADIR/alaska/data23b < $DATADIR/alaska/parm23b >> testfile_alaska
+
+grep -qi "Differences exist" testfile_alaska && exit 1
+
+exit 0

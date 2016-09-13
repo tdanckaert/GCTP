@@ -1,6 +1,6 @@
 AC_PREREQ([2.69])
 AC_INIT([gctp], [2.0], [guix-devel@gnu.org])
-AM_INIT_AUTOMAKE(foreign)
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 LT_INIT
 AC_CONFIG_SRCDIR([source/cproj.c])
 AC_CONFIG_HEADERS([config.h])

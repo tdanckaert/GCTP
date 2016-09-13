@@ -225,7 +225,6 @@ if (*insys == SPCS)
    *inunit = unit;
 if (*iflg != 0)
    {
-   close_file();
    return;
    }
  
@@ -247,7 +246,6 @@ if (ininit_flag)
    inv_init(*insys,*inzone,inparm,*inspheroid,fn27,fn83,iflg,inv_trans);
    if (*iflg != 0)
       {
-      close_file();
       return;
       }
    }
@@ -265,7 +263,6 @@ if (*insys == GEO)
 else
 if ((*iflg = inv_trans[*insys](x, y, &lon, &lat)) != 0)
    {
-   close_file();
    return;
    }
 
@@ -312,7 +309,6 @@ if (outinit_flag)
       for_init(*outsys,*outzone,outparm,*outspheroid,fn27,fn83,iflg,for_trans);
    if (*iflg != 0)
       {
-      close_file();
       return;
       }
    }
@@ -327,7 +323,6 @@ if (*outsys == GEO)
 else
 if ((*iflg = for_trans[*outsys](lon, lat, &outcoor[0], &outcoor[1])) != 0)
    {
-   close_file();
    return;
    }
 
@@ -351,6 +346,5 @@ if (*outsys == SPCS)
 
 outcoor[0] *= factor;
 outcoor[1] *= factor;
-close_file();
 return;
 }

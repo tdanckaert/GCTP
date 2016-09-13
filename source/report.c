@@ -125,14 +125,6 @@ else
 return(OK);
 }
 
-void close_file()
-{
-if (fptr_e != NULL)
-   fclose(fptr_e);
-if (fptr_p != NULL)
-   fclose(fptr_p);
-}
-
 /* Functions to report projection parameters
   -----------------------------------------*/
 void ptitle(A)

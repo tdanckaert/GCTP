@@ -1,0 +1,11 @@
+#!/bin/bash
+
+./testproj $DATADIR/gvnsp/data15 < $DATADIR/gvnsp/parm15 > testfile_gvnsp
+./testproj $DATADIR/gvnsp/data15a < $DATADIR/gvnsp/parm15a >> testfile_gvnsp
+./testproj $DATADIR/gvnsp/data15b < $DATADIR/gvnsp/parm15b >> testfile_gvnsp
+./testproj $DATADIR/gvnsp/data15c < $DATADIR/gvnsp/parm15c >> testfile_gvnsp
+./testproj $DATADIR/gvnsp/data15d < $DATADIR/gvnsp/parm15d >> testfile_gvnsp
+
+grep -qi "Differences exist" testfile_gvnsp && exit 1
+
+exit 0

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+./testproj $DATADIR/lamcc/data4 < $DATADIR/lamcc/parm4 > testfile_lamcc
+./testproj $DATADIR/lamcc/data4a < $DATADIR/lamcc/parm4a >> testfile_lamcc
+./testproj $DATADIR/lamcc/data4b < $DATADIR/lamcc/parm4b >> testfile_lamcc
+./testproj $DATADIR/lamcc/data4c < $DATADIR/lamcc/parm4c >> testfile_lamcc
+
+grep -qi "Differences exist" testfile_lamcc && exit 1
+
+exit 0

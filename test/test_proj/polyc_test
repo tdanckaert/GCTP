@@ -1,0 +1,10 @@
+#!/bin/bash
+
+./testproj $DATADIR/polyc/data7a < $DATADIR/polyc/parm7a > testfile_polyc
+./testproj $DATADIR/polyc/data7b < $DATADIR/polyc/parm7b >> testfile_polyc
+./testproj $DATADIR/polyc/data7c < $DATADIR/polyc/parm7c >> testfile_polyc
+./testproj $DATADIR/polyc/data7d < $DATADIR/polyc/parm7d >> testfile_polyc
+
+grep -qi "Differences exist" testfile_polyc && exit 1
+
+exit 0

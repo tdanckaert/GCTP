@@ -1,0 +1,10 @@
+#!/bin/bash
+
+./testproj $DATADIR/mercat/data5 < $DATADIR/mercat/parm5 > testfile_mercat
+./testproj $DATADIR/mercat/data5a < $DATADIR/mercat/parm5a >> testfile_mercat
+./testproj $DATADIR/mercat/data5b < $DATADIR/mercat/parm5b >> testfile_mercat
+./testproj $DATADIR/mercat/data5c < $DATADIR/mercat/parm5c >> testfile_mercat
+
+grep -qi "Differences exist" testfile_mercat && exit 1
+
+exit 0

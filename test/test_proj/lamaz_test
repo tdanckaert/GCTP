@@ -1,0 +1,10 @@
+#!/bin/bash
+
+./testproj $DATADIR/lamaz/data11 < $DATADIR/lamaz/parm11 > testfile_lamaz
+./testproj $DATADIR/lamaz/data11a < $DATADIR/lamaz/parm11a >> testfile_lamaz
+./testproj $DATADIR/lamaz/data11b < $DATADIR/lamaz/parm11b >> testfile_lamaz
+./testproj $DATADIR/lamaz/data11c < $DATADIR/lamaz/parm11c >> testfile_lamaz
+
+grep -qi "Differences exist" testfile_lamaz && exit 1
+
+exit 0

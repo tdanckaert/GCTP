@@ -1,0 +1,11 @@
+#!/bin/bash
+
+./testproj $DATADIR/gnomon/data13 < $DATADIR/gnomon/parm13 > testfile_gnomon
+./testproj $DATADIR/gnomon/data13a < $DATADIR/gnomon/parm13a >> testfile_gnomon
+./testproj $DATADIR/gnomon/data13b < $DATADIR/gnomon/parm13b >> testfile_gnomon
+./testproj $DATADIR/gnomon/data13c < $DATADIR/gnomon/parm13c >> testfile_gnomon
+./testproj $DATADIR/gnomon/data13d < $DATADIR/gnomon/parm13d >> testfile_gnomon
+
+grep -qi "Differences exist" testfile_gnomon && exit 1
+
+exit 0

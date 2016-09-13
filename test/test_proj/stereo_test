@@ -1,0 +1,9 @@
+#!/bin/bash
+
+./testproj $DATADIR/stereo/data10 < $DATADIR/stereo/parm10 > testfile_stereo
+./testproj $DATADIR/stereo/data10a < $DATADIR/stereo/parm10a >> testfile_stereo
+./testproj $DATADIR/stereo/data10b < $DATADIR/stereo/parm10b >> testfile_stereo
+
+grep -qi "Differences exist" testfile_stereo && exit 1
+
+exit 0

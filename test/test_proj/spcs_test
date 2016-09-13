@@ -1,0 +1,25 @@
+#!/bin/bash
+
+export SRCGCTP=.
+
+./testproj $DATADIR/spcs/data0101 < $DATADIR/spcs/parm20101 > testfile_spcs
+./testproj $DATADIR/spcs/data0503 < $DATADIR/spcs/parm20503 >> testfile_spcs
+./testproj $DATADIR/spcs/data1301 < $DATADIR/spcs/parm21301 >> testfile_spcs
+./testproj $DATADIR/spcs/data1703 < $DATADIR/spcs/parm21703 >> testfile_spcs
+./testproj $DATADIR/spcs/data2201 < $DATADIR/spcs/parm22201 >> testfile_spcs
+./testproj $DATADIR/spcs/data2701 < $DATADIR/spcs/parm22701 >> testfile_spcs
+./testproj $DATADIR/spcs/data2900 < $DATADIR/spcs/parm22900 >> testfile_spcs
+./testproj $DATADIR/spcs/data3003 < $DATADIR/spcs/parm23003 >> testfile_spcs
+./testproj $DATADIR/spcs/data3601 < $DATADIR/spcs/parm23601 >> testfile_spcs
+./testproj $DATADIR/spcs/data3800 < $DATADIR/spcs/parm23800 >> testfile_spcs
+./testproj $DATADIR/spcs/data4002 < $DATADIR/spcs/parm24002 >> testfile_spcs
+./testproj $DATADIR/spcs/data4400 < $DATADIR/spcs/parm24400 >> testfile_spcs
+./testproj $DATADIR/spcs/data4803 < $DATADIR/spcs/parm24803 >> testfile_spcs
+./testproj $DATADIR/spcs/data5001 < $DATADIR/spcs/parm25001 >> testfile_spcs
+./testproj $DATADIR/spcs/data5009 < $DATADIR/spcs/parm25009 >> testfile_spcs
+./testproj $DATADIR/spcs/data5104 < $DATADIR/spcs/parm25104 >> testfile_spcs
+./testproj $DATADIR/spcs/data5400 < $DATADIR/spcs/parm25400 >> testfile_spcs
+
+grep -qi "Differences exist" testfile_spcs && exit 1
+
+exit 0

@@ -11,9 +11,13 @@ autom4te.cache/
 
 source/.deps
 source/.libs
+source/test-suite.log
 source/nad27sp
 source/nad83sp
 
 test/proj/*/cmp*
 test/proj/*/temp*
 test/proj/*/testfile
+
+test/proj/*/*.trs
+test/proj/*/*.log
